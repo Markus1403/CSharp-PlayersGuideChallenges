@@ -14,7 +14,6 @@ while(true)
 }
 
 
-public void 
 // enum for chest state 
 enum ChestState
 {Open, Closed, Locked}
