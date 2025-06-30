@@ -1,5 +1,4 @@
-﻿
-Console.Title = "Hunting the manticore";
+﻿Console.Title = "Hunting the manticore";
 Console.Clear();
 
 //Game starting state
@@ -7,10 +6,8 @@ int manticoreHealth = 10;
 int cityHealth = 15;
 int round = 1;
 
-// Player 1 chooses manticore position
-Console.ForegroundColor = ConsoleColor.Red;
-int manticoreDistance = AskForNumberInRange("Lord Uncoded One, how far away from the city do you want to station the Manticore", 0, 100); 
-Console.Clear();
+Random random = new Random();
+int manticoreDistance = random.Next(0, 101) ;
 
 // Game loop
 while(manticoreHealth > 0 && cityHealth > 0)

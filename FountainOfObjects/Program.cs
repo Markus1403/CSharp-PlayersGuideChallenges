@@ -12,9 +12,16 @@ public class Game {
     private World world;
     private Player player;
 
+    private TimeSpan elaspedTime;
+
+    private DateTime startTime;
+    private DateTime endTime;
+
+
     public Game(){
         world = new World();
         player = new Player();  
+        startTime = DateTime.UtcNow;
     }
 
     public void GameRunning () {
@@ -148,6 +155,7 @@ public class Game {
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("The Fountain of Objects has been reactivated, and you escaped with your life!");
                 Console.WriteLine("You Win!"); 
+                TimeElapsed();
                 return true;
             }
         return false;
@@ -161,12 +169,17 @@ public class Game {
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("You Lost!"); 
+                TimeElapsed();
                 return true;
             }
         return false;
     }
 
-
+    private void TimeElapsed() {
+        endTime = DateTime.UtcNow;
+        elaspedTime = endTime - startTime;
+            Console.WriteLine($"Time elapsed: {elaspedTime.Hours}h {elaspedTime.Minutes}m {elaspedTime.Seconds}s {elaspedTime.Milliseconds}ms");
+    }
     
 }
 

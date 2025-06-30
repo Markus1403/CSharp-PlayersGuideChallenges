@@ -2,10 +2,14 @@
 Robot robot = new Robot();
 Console.Clear();
 
-for (int index = 0; index < robot.Commands.Length; index++)
+while (true)
 {   
     Console.WriteLine("Give The Robot a Command:");
     string? input = Console.ReadLine();
+
+    if (input == "stop") {
+        break;
+    }
     IRobotCommand newCommand = input switch
     {
         "on" => new OnCommand(),
@@ -15,12 +19,13 @@ for (int index = 0; index < robot.Commands.Length; index++)
         "east" => new EastCommand(),
         "west" => new WestCommand(),
     };
-    robot.Commands[index] = newCommand;
+    robot.Commands.Add(newCommand);
 }
 
 Console.WriteLine();
 
 robot.Run();
+
 public interface IRobotCommand {
     public void Run(Robot robot);
 }
@@ -30,7 +35,7 @@ public class Robot {
     public int X {get; set;}
     public int Y {get; set;}
     public bool IsPowered {get; set;}
-    public IRobotCommand?[] Commands {get;} = new IRobotCommand[3];
+    public List<IRobotCommand> Commands {get;} = new List<IRobotCommand>();
     public void Run() {
         foreach (IRobotCommand? command in Commands) {
             command?.Run(this);
