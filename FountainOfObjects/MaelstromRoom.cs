@@ -1,3 +1,5 @@
+namespace FountainOfObjects;
+
 public class MaelstromRoom : Room {
     public int Row { get; set; } = 0;
     public int Col { get; set; } = 0;

@@ -1,3 +1,5 @@
+namespace FountainOfObjects;
+
 public class Player {
     public int Row { get; private set; } = 0;
     public int Col { get; private set; } = 0;

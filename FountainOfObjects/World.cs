@@ -1,3 +1,5 @@
+namespace FountainOfObjects;
+
 public class World {
     public Room[,] Grid { get; }
     public FountainRoom FountainRoom {get;}

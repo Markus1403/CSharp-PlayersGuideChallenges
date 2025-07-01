@@ -1,3 +1,5 @@
+namespace FountainOfObjects;
+
 public class FountainRoom : Room {
     public bool IsFountainEnabled {get; set;} = false;
     

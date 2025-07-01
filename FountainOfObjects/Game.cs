@@ -1,3 +1,5 @@
+namespace FountainOfObjects;
+
 public class Game {
     private World world;
     private Player player;
