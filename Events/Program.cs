@@ -34,7 +34,7 @@ public class Notifier {
 
 public class Harvester {
     private int harvestCount;
-    private CharberryTree charberryTree;
+    private CharberryTree charberryTree; 
     public Harvester(CharberryTree charberryTree)
     {
         this.charberryTree = charberryTree;
