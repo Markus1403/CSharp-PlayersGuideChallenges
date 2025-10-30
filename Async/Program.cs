@@ -1,17 +1,18 @@
 ﻿using System.Threading;
-Console.Write("Enter a maximum five letter word: ");
-string? inputWord = Console.ReadLine();
 
-DateTime start = DateTime.Now;
-
-if (string.IsNullOrEmpty(inputWord)) {
-    Console.WriteLine("Invalid input.");
-    return;
+while (true) {
+    Console.Write("Enter a maximum five letter word: ");
+    string? inputWord = Console.ReadLine(); 
+    WaitForWord(inputWord);
 }
 
-int result = await RandomlyRecreateAsync(inputWord);
-TimeSpan elapsed = DateTime.Now - start;
-Console.WriteLine(elapsed);
+async Task WaitForWord(string inputWord) {
+    DateTime start = DateTime.Now;
+    int attempts = await RandomlyRecreateAsync(inputWord);
+    Console.WriteLine($"The word {inputWord} took {attempts} attempts.");
+    TimeSpan elapsed = DateTime.Now - start;
+    Console.WriteLine(elapsed);
+}
 
 int RandomlyRecreate(string inputWord) {
 
